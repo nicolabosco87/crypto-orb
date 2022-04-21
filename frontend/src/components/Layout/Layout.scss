@@ -1,0 +1,21 @@
+.layout__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background-position: bottom center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @media (max-width: 1243px) {
+    background-color: black;
+    background-size: contain;
+  }
+
+  @media (max-width: 1243px) {
+    background-size: cover;
+    opacity: 0.2;
+  }
+}
