@@ -6,7 +6,8 @@
     "start-local-node": "npx hardhat node",
     "test:local": "npx hardhat test --network local",
     "deploy:local": "npx hardhat run scripts/deploy.ts --network local",
-    "deploy:rinkeby": "npx hardhat run scripts/deploy.ts --network rinkeby"
+    "deploy:rinkeby": "npx hardhat run scripts/deploy.ts --network rinkeby",
+    "build": "cd frontend && npm run build"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.0",
