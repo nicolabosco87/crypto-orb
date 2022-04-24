@@ -7,6 +7,6 @@ export const HARDHAT_NETWORK_ID = "31337";
 // This is an error code that indicates that the user canceled a transaction
 const ERROR_CODE_TX_REJECTED_BY_USER = 4001;
 
-// export const WEB_CORRECT_CHAIN = "0x89"; // Polygon
-export const WEB_CORRECT_CHAIN = "0x4"; // Rinkeby
+export const WEB_CORRECT_CHAIN = "0x89"; // Polygon
 // export const WEB_CORRECT_CHAIN = "0x539"; // Dev HardHat
+// export const WEB_CORRECT_CHAIN = "0x13881"; // Mumbai

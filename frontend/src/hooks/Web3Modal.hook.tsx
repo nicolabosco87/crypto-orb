@@ -14,7 +14,7 @@ import { useSnapshot } from "valtio";
  * Web3Modal Init
  */
 (window as any).web3Modal = new Web3Modal({
-  network: "rinkeby", // optional
+  network: "polygon", // optional
   cacheProvider: true, // optional
   //   providerOptions, // required
 });
@@ -58,6 +58,7 @@ export const useInitWeb3 = () => {
 
     // Subscribe to chainId change
     instance.on("chainChanged", (chainId: { chainId: string }) => {
+      console.log("NEW CHAIN", String(chainId));
       store.web3.isCorrectChain = String(chainId) === WEB_CORRECT_CHAIN;
     });
 

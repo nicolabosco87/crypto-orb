@@ -27,17 +27,17 @@ const config: HardhatUserConfig = {
   solidity: "0.8.4",
   networks: {
     polygon: {
-      url: process.env.POLYGON_URL || "",
+      url: "https://polygon-rpc.com/",
       accounts:
         process.env.POLYGON_PRIVATE_KEY !== undefined
           ? [process.env.POLYGON_PRIVATE_KEY]
           : [],
     },
-    rinkeby: {
-      url: process.env.RINKEBY_URL || "",
+    mumbai: {
+      url: "https://rpc-mumbai.maticvigil.com",
       accounts:
-        process.env.RINKEBY_PRIVATE_KEY !== undefined
-          ? [process.env.RINKEBY_PRIVATE_KEY]
+        process.env.POLYGON_PRIVATE_KEY !== undefined
+          ? [process.env.POLYGON_PRIVATE_KEY]
           : [],
     },
     local: {
@@ -53,7 +53,7 @@ const config: HardhatUserConfig = {
     currency: "USD",
   },
   etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY,
+    apiKey: process.env.POLYGON_API_KEY,
   },
 };
 
