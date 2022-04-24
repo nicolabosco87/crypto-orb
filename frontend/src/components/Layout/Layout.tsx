@@ -1,5 +1,6 @@
 import "./Layout.scss";
 
+import { Footer } from "../Footer";
 import { Header } from "../Header/Header";
 import React from "react";
 
@@ -14,6 +15,7 @@ const Layout: React.FC = ({ children }) => {
         }}
       ></div>
       {children}
+      <Footer />
     </div>
   );
 };
