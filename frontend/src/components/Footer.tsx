@@ -11,13 +11,12 @@ export const Footer = () => {
         zIndex: 1,
       }}
     >
-      <a
-        href="https://www.iubenda.com/privacy-policy/26028820"
-        className="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe "
-        title="Privacy Policy "
-      >
-        Privacy Policy
-      </a>
+      <script
+        id="CookieDeclaration"
+        src="https://consent.cookiebot.com/7b238e1b-4be8-4f40-8c99-039e4048a174/cd.js"
+        type="text/javascript"
+        async
+      ></script>
     </Box>
   );
 };
