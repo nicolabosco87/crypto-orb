@@ -1,18 +1,20 @@
-import "./Orb.scss";
-
 import React, { useMemo } from "react";
 
 import classNames from "classnames";
 import { store } from "../../store/store";
+import { useMantineTheme } from "@mantine/core";
+import { useOrbStyles } from "./Orb.style";
 import { useSnapshot } from "valtio";
 import { useViewportSize } from "@mantine/hooks";
 
 const Orb = () => {
   const { status, result } = useSnapshot(store);
+  const theme = useMantineTheme();
   const { height, width } = useViewportSize();
+  const { classes } = useOrbStyles();
 
   const orbTextClasses = classNames({
-    orb__text: true,
+    [classes.orbText]: true,
     in: status === "in",
     out: status === "out",
   });
@@ -28,17 +30,17 @@ const Orb = () => {
     const orbBottom = (bgOrbBottom * width) / bgWidth;
     const orbLeft = (bgOrbLeft * width) / bgWidth;
 
-    if (width < 1243) return {};
+    if (width < theme.breakpoints.lg) return {};
 
     return {
       width: orbWidth,
       bottom: orbBottom,
       marginLeft: orbLeft,
     };
-  }, [width]);
+  }, [theme.breakpoints.lg, width]);
 
   return (
-    <div className="orbWrapper">
+    <div className={classes.orbWrapper}>
       <div
         className="orb__bg"
         style={{
@@ -46,8 +48,8 @@ const Orb = () => {
         }}
       ></div>
       <div className="flex items-center justify-center">
-        <div className="orb " style={orbStyle}>
-          <div className="orb__smoke"></div>
+        <div className={classes.orb} style={orbStyle}>
+          <div className={classes.orbSmoke}></div>
           <div className={orbTextClasses}>{result}</div>
         </div>
 
