@@ -7,22 +7,36 @@ import {
   Group,
   Title,
 } from "@mantine/core";
+import {
+  useWeb3Connect,
+  useWeb3Disconnect,
+  useWeb3Status,
+} from "../../hooks/web3.hook";
 
 import React from "react";
+import { createStyles } from "@mantine/core";
 import { setPage } from "../../store/actions";
 import { store } from "../../store/store";
-import { useInitWeb3 } from "../../hooks/Web3Modal.hook";
 import { useSnapshot } from "valtio";
 
-export const Header = () => {
-  const { currentPage, web3 } = useSnapshot(store);
+const useStyles = createStyles((theme, _params, getRef) => ({
+  logo: {
+    [`@media (max-width: ${theme.breakpoints.sm}px)`]: {
+      fontSize: "1.5rem",
+    },
+  },
+}));
 
-  const account = web3?.account;
+export const Header = () => {
+  const { currentPage } = useSnapshot(store);
+  const { classes } = useStyles();
 
   const goToPonder = () => setPage("ponder");
   const goToAbout = () => setPage("about");
 
-  const { connectModal, logoutOfWeb3Modal } = useInitWeb3();
+  const { accounts } = useWeb3Status();
+  const web3Connect = useWeb3Connect();
+  const web3Disconnect = useWeb3Disconnect();
 
   const whiteStyle: CSSObject = { color: "white" };
 
@@ -37,8 +51,10 @@ export const Header = () => {
           opacity: 0.9,
         })}
       >
-        <Group position="apart">
-          <Title order={1}>Crypto Orb</Title>
+        <Group position="apart" style={{ gap: 2 }}>
+          <Title className={classes.logo} order={1}>
+            Crypto Orb
+          </Title>
 
           <Group position="right">
             <Anchor
@@ -53,10 +69,10 @@ export const Header = () => {
             >
               About
             </Anchor>
-            {!account && <Button onClick={connectModal}>Connect Wallet</Button>}
-            {account && (
-              <Button onClick={logoutOfWeb3Modal}>
-                {account.slice(0, 4)}...{account.slice(-4)}
+            {!accounts && <Button onClick={web3Connect}>Connect Wallet</Button>}
+            {accounts && (
+              <Button onClick={web3Disconnect}>
+                {accounts[0].slice(0, 4)}...{accounts[0].slice(-4)}
               </Button>
             )}
           </Group>

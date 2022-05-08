@@ -1,15 +1,17 @@
-import { Alert, Box, Button, Group, MediaQuery, Select } from "@mantine/core";
+import { Box, Button, Group, MediaQuery, Select } from "@mantine/core";
 
-import { AlertCircle } from "tabler-icons-react";
 import React from "react";
+import { WrongChainAlert } from "./WrongChainAlert";
 import { ponderOrb } from "../store/actions";
-import { store } from "../store/store";
-import { useSnapshot } from "valtio";
+import { useContract } from "../hooks/useContract.hook";
+import { useWeb3Status } from "../hooks/web3.hook";
 
 const Form: React.FC = () => {
-  const { web3 } = useSnapshot(store);
-  const contract = web3?.contract;
-  const isCorrectChain = web3?.isCorrectChain;
+  // const { web3 } = useSnapshot(store);
+  // const contract = web3?.contract;
+  // const isCorrectChain = web3?.isCorrectChain;
+  const { isConnected } = useWeb3Status();
+  const contract = useContract();
 
   const ponderOrbOnCLick = () => {
     if (contract) {
@@ -19,16 +21,7 @@ const Form: React.FC = () => {
 
   return (
     <>
-      {isCorrectChain === false && (
-        <Alert
-          icon={<AlertCircle size={16} />}
-          title="Wrong Network!"
-          color="red"
-          mt={50}
-        >
-          Please change network into Polygon.
-        </Alert>
-      )}
+      <WrongChainAlert />
       <Group
         position="center"
         mt={50}
@@ -71,11 +64,7 @@ const Form: React.FC = () => {
             { value: "Next Year", label: "Next Year" },
           ]}
         />
-        <Button
-          mt={28}
-          disabled={isCorrectChain !== true}
-          onClick={ponderOrbOnCLick}
-        >
+        <Button mt={28} disabled={!isConnected} onClick={ponderOrbOnCLick}>
           Ponder Orb
         </Button>
       </Group>

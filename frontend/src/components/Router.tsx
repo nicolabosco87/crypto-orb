@@ -7,6 +7,10 @@ import React from "react";
 import { store } from "../store/store";
 import { useSnapshot } from "valtio";
 
+/**
+ * Simple routing component
+ * @returns
+ */
 export const Router = () => {
   const { currentPage } = useSnapshot(store);
   return (
