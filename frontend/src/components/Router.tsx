@@ -38,11 +38,11 @@ export const Router = () => {
           <About />
         </PageTransition>
       )}
-      {currentPage === "privacy" && (
+      {/* {currentPage === "privacy" && (
         <PageTransition key="privacy">
           <Privacy />
         </PageTransition>
-      )}
+      )} */}
     </AnimatePresence>
   );
 };

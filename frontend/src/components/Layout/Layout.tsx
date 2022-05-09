@@ -39,7 +39,7 @@ const Layout = ({ children }: ILayoutProps) => {
         }}
       ></div>
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
