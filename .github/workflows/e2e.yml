@@ -23,6 +23,8 @@ jobs:
 
       # Install dependencies
       - run: npm install
+        working-directory: ./app
 
       # Run tests
       - run: npm test
+        working-directory: ./app
