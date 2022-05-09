@@ -1,15 +1,12 @@
 import { Box, Button, Group, MediaQuery, Select } from "@mantine/core";
 
 import React from "react";
-import { WrongChainAlert } from "./WrongChainAlert";
+import { WrongChainAlert } from "../components/WrongChainAlert";
 import { ponderOrb } from "../store/actions";
 import { useContract } from "../hooks/useContract.hook";
 import { useWeb3Status } from "../hooks/web3.hook";
 
-const Form: React.FC = () => {
-  // const { web3 } = useSnapshot(store);
-  // const contract = web3?.contract;
-  // const isCorrectChain = web3?.isCorrectChain;
+export const PonderOrb = () => {
   const { isConnected } = useWeb3Status();
   const contract = useContract();
 
@@ -71,5 +68,3 @@ const Form: React.FC = () => {
     </>
   );
 };
-
-export default Form;

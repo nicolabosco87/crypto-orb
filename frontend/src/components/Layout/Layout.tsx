@@ -1,6 +1,7 @@
+import React, { ReactNode } from "react";
+
 import { Footer } from "../Footer";
 import { Header } from "../Header/Header";
-import React from "react";
 import { createStyles } from "@mantine/core";
 
 const useStyles = createStyles((theme, _params, getRef) => ({
@@ -23,7 +24,10 @@ const useStyles = createStyles((theme, _params, getRef) => ({
   },
 }));
 
-const Layout: React.FC = ({ children }) => {
+interface ILayoutProps {
+  children?: ReactNode;
+}
+const Layout = ({ children }: ILayoutProps) => {
   const { classes } = useStyles();
   return (
     <div>

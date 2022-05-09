@@ -1,7 +1,7 @@
 import { proxy } from "valtio";
 
 export type TOrbStatus = "in" | "out" | "idle";
-export type TCurrentPage = "ponder" | "about";
+export type TCurrentPage = "ponder" | "about" | "privacy";
 export interface IStore {
   status: TOrbStatus;
   result?: string;

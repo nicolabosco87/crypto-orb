@@ -30,13 +30,12 @@ const useStyles = createStyles((theme, _params, getRef) => ({
 export const Header = () => {
   const { currentPage } = useSnapshot(store);
   const { classes } = useStyles();
-
-  const goToPonder = () => setPage("ponder");
-  const goToAbout = () => setPage("about");
-
   const { accounts } = useWeb3Status();
   const web3Connect = useWeb3Connect();
   const web3Disconnect = useWeb3Disconnect();
+
+  const goToPonder = () => setPage("ponder");
+  const goToAbout = () => setPage("about");
 
   const whiteStyle: CSSObject = { color: "white" };
 

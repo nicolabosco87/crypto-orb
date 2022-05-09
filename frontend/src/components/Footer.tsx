@@ -1,7 +1,11 @@
-import { Box } from "@mantine/core";
+import { Anchor, Box } from "@mantine/core";
+
 import React from "react";
+import { setPage } from "../store/actions";
 
 export const Footer = () => {
+  const onClick = () => setPage("privacy");
+
   return (
     <Box
       sx={{
@@ -11,12 +15,9 @@ export const Footer = () => {
         zIndex: 1,
       }}
     >
-      <script
-        id="CookieDeclaration"
-        src="https://consent.cookiebot.com/7b238e1b-4be8-4f40-8c99-039e4048a174/cd.js"
-        type="text/javascript"
-        async
-      ></script>
+      <Anchor onClick={onClick} sx={{ color: "white" }}>
+        Privacy
+      </Anchor>
     </Box>
   );
 };

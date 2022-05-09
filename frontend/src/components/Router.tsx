@@ -1,8 +1,10 @@
 import { AnimatePresence, motion } from "framer-motion";
 
-import { About } from "./About";
-import Form from "./Form";
+import { About } from "../pages/About";
 import Orb from "./Orb/Orb";
+import { PageTransition } from "./PageTransition";
+import { PonderOrb } from "../pages/PonderOrb";
+import { Privacy } from "../pages/Privacy";
 import React from "react";
 import { store } from "../store/store";
 import { useSnapshot } from "valtio";
@@ -17,15 +19,9 @@ export const Router = () => {
     <AnimatePresence exitBeforeEnter>
       {currentPage === "ponder" && (
         <>
-          <motion.div
-            key="ponder"
-            animate={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: -20 }}
-            exit={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.15 }}
-          >
-            <Form />
-          </motion.div>
+          <PageTransition key="ponder">
+            <PonderOrb />
+          </PageTransition>
           <motion.div
             key="orb"
             animate={{ opacity: 1 }}
@@ -38,15 +34,14 @@ export const Router = () => {
         </>
       )}
       {currentPage === "about" && (
-        <motion.div
-          key="about"
-          animate={{ opacity: 1, y: 0 }}
-          initial={{ opacity: 0, y: -20 }}
-          exit={{ opacity: 0, y: 20 }}
-          transition={{ duration: 0.15 }}
-        >
+        <PageTransition key="about">
           <About />
-        </motion.div>
+        </PageTransition>
+      )}
+      {currentPage === "privacy" && (
+        <PageTransition key="privacy">
+          <Privacy />
+        </PageTransition>
       )}
     </AnimatePresence>
   );
