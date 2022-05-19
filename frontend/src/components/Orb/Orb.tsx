@@ -10,7 +10,7 @@ import { useViewportSize } from "@mantine/hooks";
 const Orb = () => {
   const { status, result } = useSnapshot(store);
   const theme = useMantineTheme();
-  const { height, width } = useViewportSize();
+  const { width } = useViewportSize();
   const { classes } = useOrbStyles();
 
   const orbTextClasses = classNames({

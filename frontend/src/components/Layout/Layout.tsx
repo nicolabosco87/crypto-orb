@@ -1,17 +1,16 @@
 import React, { ReactNode } from "react";
 
-import { Footer } from "../Footer";
 import { Header } from "../Header/Header";
 import { createStyles } from "@mantine/core";
 
-const useStyles = createStyles((theme, _params, getRef) => ({
+const useStyles = createStyles((theme) => ({
   layoutBg: {
     position: "absolute",
     top: "0",
     left: "0",
     width: "100vw",
     height: "100vh",
-    zIndex: "0",
+    zIndex: 0,
     backgroundPosition: "bottom center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
