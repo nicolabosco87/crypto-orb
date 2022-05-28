@@ -8,6 +8,8 @@ Concept inspired by "Pondering My Orb" Meme (https://knowyourmeme.com/memes/pond
 
 All answers came from original Magic 8 ball.
 
+THIS WEBSITE DOESN'T GIVE FINANCIAL ADVICES!
+
 ## Environment
 
 Deployed on Polygon, Smart Contract development supported by Hardhat, Frontend made with React.
@@ -20,4 +22,4 @@ MIT
 
 ### support
 
-🔮 0xe8D3DF8959fc111974Fd0b7B5D29305Ee359a780
+ETH: 0xe8D3DF8959fc111974Fd0b7B5D29305Ee359a780

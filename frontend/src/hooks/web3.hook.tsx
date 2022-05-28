@@ -1,4 +1,6 @@
-import { hooks, metaMask } from "../connectors/metaMask";
+// import { hooks, metaMask } from "../connectors/metaMask";
+
+import { hooks, network } from "../connectors/network";
 
 import { CORRECT_CHAIN } from "../conf";
 import { useEffect } from "react";
@@ -19,7 +21,7 @@ export const useWeb3Status = () => {
 
   // attempt to connect eagerly on mount
   useEffect(() => {
-    void metaMask.connectEagerly();
+    void network.activate();
   }, []);
 
   return {
@@ -31,18 +33,4 @@ export const useWeb3Status = () => {
     isActivating,
     isActive,
   };
-};
-
-/**
- * Connect to web3 function
- */
-export const useWeb3Connect = () => {
-  return () => metaMask.activate(CORRECT_CHAIN);
-};
-
-/**
- * Disconnect from web3 function
- */
-export const useWeb3Disconnect = () => {
-  return () => metaMask.deactivate();
 };

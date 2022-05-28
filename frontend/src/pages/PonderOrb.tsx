@@ -61,7 +61,7 @@ export const PonderOrb = () => {
             { value: "Next Year", label: "Next Year" },
           ]}
         />
-        <Button mt={28} disabled={!isConnected} onClick={ponderOrbOnCLick}>
+        <Button mt={28} onClick={ponderOrbOnCLick}>
           Ponder Orb
         </Button>
       </Group>
