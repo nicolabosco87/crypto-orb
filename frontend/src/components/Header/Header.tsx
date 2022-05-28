@@ -12,7 +12,6 @@ import React from "react";
 import { setPage } from "../../store/actions";
 import { store } from "../../store/store";
 import { useSnapshot } from "valtio";
-import { useWeb3Status } from "../../hooks/web3.hook";
 
 const useStyles = createStyles((theme, _params, getRef) => ({
   logo: {
@@ -25,9 +24,6 @@ const useStyles = createStyles((theme, _params, getRef) => ({
 export const Header = () => {
   const { currentPage } = useSnapshot(store);
   const { classes } = useStyles();
-  const { accounts } = useWeb3Status();
-  // const web3Connect = useWeb3Connect();
-  // const web3Disconnect = useWeb3Disconnect();
 
   const goToPonder = () => setPage("ponder");
   const goToAbout = () => setPage("about");
@@ -38,7 +34,9 @@ export const Header = () => {
     <Affix position={{ top: 0, left: 0 }}>
       <Container
         fluid
-        p={3}
+        px={15}
+        py={3}
+        m={0}
         sx={(theme) => ({
           width: "100vw",
           background: theme.colors.dark[7],
@@ -63,12 +61,6 @@ export const Header = () => {
             >
               About
             </Anchor>
-            {/* {!accounts && <Button onClick={web3Connect}>Connect Wallet</Button>}
-            {accounts && (
-              <Button onClick={web3Disconnect}>
-                {accounts[0].slice(0, 4)}...{accounts[0].slice(-4)}
-              </Button>
-            )} */}
           </Group>
         </Group>
       </Container>
