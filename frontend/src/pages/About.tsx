@@ -11,17 +11,19 @@ export const About = () => {
           About
         </Title>
         <Text mb={15}>
-          Ponder the Orb to see the prediction on Cryptos, computed directly
+          Ponder the Orb to see predictions on Cryptos, computed directly
           through Smart Contract!
         </Text>
         <Text mb={30}>
-          Well, the Orb can be wrong! So <u>this is not a financial advice!</u>
+          Well, the Orb can be wrong! So{" "}
+          <u>THIS WEBSITE DOESN'T GIVE FINANCIAL ADVICES!</u>
         </Text>
         <Text>
           Ponder also the GitHub repository!
           <Anchor
             href="https://github.com/nicolabosco87/crypto-orb"
             target="_blank"
+            ml={15}
           >
             <ThemeIcon>
               <BrandGithub />

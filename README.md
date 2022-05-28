@@ -12,7 +12,7 @@ THIS WEBSITE DOESN'T GIVE FINANCIAL ADVICES!
 
 ## Environment
 
-Deployed on Polygon, Smart Contract development supported by Hardhat, Frontend made with React.
+Smart Contract deployed on Polygon, development supported by Hardhat, Frontend made with React.
 
 Contract Address: 0x1fe82b79BE4a942A0Cd002644f66228dE840099a
 

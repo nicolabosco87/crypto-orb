@@ -27,10 +27,8 @@ export const CHAINS: {
 
 export const CORRECT_CHAIN = CHAINS.POLYGON;
 
-export const URLS: { [chainId: number]: string[] } = [];
+export const URLS: { [chainId: number]: string[] } = {};
 
 Object.keys(CHAINS).forEach((chainKey) => {
-  const validURLs: string[] = CHAINS[chainKey].rpcUrls ?? [];
-
-  URLS[CHAINS[chainKey].chainId] = validURLs;
+  URLS[CHAINS[chainKey].chainId] = CHAINS[chainKey].rpcUrls ?? [];
 }, {});
