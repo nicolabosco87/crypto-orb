@@ -1,23 +1,18 @@
 import {
   Affix,
   Anchor,
-  Button,
   CSSObject,
   Container,
   Group,
   Title,
+  createStyles,
 } from "@mantine/core";
-import {
-  useWeb3Connect,
-  useWeb3Disconnect,
-  useWeb3Status,
-} from "../../hooks/web3.hook";
 
 import React from "react";
-import { createStyles } from "@mantine/core";
 import { setPage } from "../../store/actions";
 import { store } from "../../store/store";
 import { useSnapshot } from "valtio";
+import { useWeb3Status } from "../../hooks/web3.hook";
 
 const useStyles = createStyles((theme, _params, getRef) => ({
   logo: {
@@ -31,8 +26,8 @@ export const Header = () => {
   const { currentPage } = useSnapshot(store);
   const { classes } = useStyles();
   const { accounts } = useWeb3Status();
-  const web3Connect = useWeb3Connect();
-  const web3Disconnect = useWeb3Disconnect();
+  // const web3Connect = useWeb3Connect();
+  // const web3Disconnect = useWeb3Disconnect();
 
   const goToPonder = () => setPage("ponder");
   const goToAbout = () => setPage("about");
@@ -68,12 +63,12 @@ export const Header = () => {
             >
               About
             </Anchor>
-            {!accounts && <Button onClick={web3Connect}>Connect Wallet</Button>}
+            {/* {!accounts && <Button onClick={web3Connect}>Connect Wallet</Button>}
             {accounts && (
               <Button onClick={web3Disconnect}>
                 {accounts[0].slice(0, 4)}...{accounts[0].slice(-4)}
               </Button>
-            )}
+            )} */}
           </Group>
         </Group>
       </Container>

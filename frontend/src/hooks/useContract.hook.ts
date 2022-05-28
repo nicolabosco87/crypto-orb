@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import TokenArtifact from "../contracts/CryptoOrb.json";
 import contractAddress from "../contracts/contract-address.json";
-import { hooks } from "../connectors/metaMask";
+import { hooks } from "../connectors/network";
 import { useWeb3Status } from "./web3.hook";
 
 const { useProvider } = hooks;
@@ -20,10 +20,8 @@ export const useContract = () => {
 
   useEffect(() => {
     if (isConnected) {
-      const signer = provider?.getSigner();
-
       setcontract(
-        new ethers.Contract(contractAddress.Token, TokenArtifact.abi, signer)
+        new ethers.Contract(contractAddress.Token, TokenArtifact.abi, provider)
       );
     }
   }, [isConnected, provider]);
