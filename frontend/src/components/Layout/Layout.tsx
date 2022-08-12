@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 
+import { Footer } from "../Footer";
 import { Header } from "../Header/Header";
 import { createStyles } from "@mantine/core";
 
@@ -38,7 +39,7 @@ const Layout = ({ children }: ILayoutProps) => {
         }}
       ></div>
       {children}
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
