@@ -1,7 +1,5 @@
 import { Group, Paper, Text, Title } from "@mantine/core";
 
-import React from "react";
-
 export const Privacy = () => {
   return (
     <Group position="center" mt={50} sx={{ position: "relative", zIndex: 100 }}>

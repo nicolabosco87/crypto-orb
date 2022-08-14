@@ -4,7 +4,6 @@ import { About } from "../pages/About";
 import Orb from "./Orb/Orb";
 import { PageTransition } from "./PageTransition";
 import { PonderOrb } from "../pages/PonderOrb";
-import React from "react";
 import { store } from "../store/store";
 import { useSnapshot } from "valtio";
 

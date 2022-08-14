@@ -8,7 +8,6 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 
-import React from "react";
 import { WrongChainAlert } from "../components/WrongChainAlert";
 import { ponderOrb } from "../store/actions";
 import { useContract } from "../hooks/useContract.hook";

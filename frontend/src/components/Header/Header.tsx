@@ -8,7 +8,6 @@ import {
   createStyles,
 } from "@mantine/core";
 
-import React from "react";
 import { setPage } from "../../store/actions";
 import { store } from "../../store/store";
 import { useSnapshot } from "valtio";

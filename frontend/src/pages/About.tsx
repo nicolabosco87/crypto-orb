@@ -1,7 +1,6 @@
 import { Anchor, Group, Paper, Text, ThemeIcon, Title } from "@mantine/core";
 
 import { BrandGithub } from "tabler-icons-react";
-import React from "react";
 
 export const About = () => {
   return (

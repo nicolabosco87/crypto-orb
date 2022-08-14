@@ -1,6 +1,5 @@
 import { Alert } from "@mantine/core";
 import { AlertCircle } from "tabler-icons-react";
-import React from "react";
 import { useWeb3Status } from "../hooks/web3.hook";
 
 /**
