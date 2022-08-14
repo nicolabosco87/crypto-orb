@@ -1,14 +1,25 @@
-import { Box, Button, Group, MediaQuery, Select } from "@mantine/core";
+import {
+  Box,
+  Button,
+  Group,
+  MediaQuery,
+  Select,
+  Stack,
+  useMantineTheme,
+} from "@mantine/core";
 
 import React from "react";
 import { WrongChainAlert } from "../components/WrongChainAlert";
 import { ponderOrb } from "../store/actions";
 import { useContract } from "../hooks/useContract.hook";
+import { useMediaQuery } from "@mantine/hooks";
 import { useWeb3Status } from "../hooks/web3.hook";
 
 export const PonderOrb = () => {
   const { isConnected } = useWeb3Status();
   const contract = useContract();
+  const theme = useMantineTheme();
+  const isMobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
 
   const ponderOrbOnCLick = () => {
     if (contract) {
@@ -16,13 +27,18 @@ export const PonderOrb = () => {
     }
   };
 
+  const GroupComponent = isMobile ? Stack : Group;
+
   return (
     <>
       <WrongChainAlert />
-      <Group
+      <GroupComponent
         position="center"
         mt={50}
-        sx={{ position: "relative", zIndex: 100 }}
+        sx={{
+          position: "relative",
+          zIndex: 100,
+        }}
       >
         <MediaQuery smallerThan="md" styles={{ display: "none" }}>
           <Box pt={20}>Will</Box>
@@ -61,10 +77,14 @@ export const PonderOrb = () => {
             { value: "Next Year", label: "Next Year" },
           ]}
         />
-        <Button mt={28} disabled={!isConnected} onClick={ponderOrbOnCLick}>
+        <Button
+          mt={isMobile ? 0 : 28}
+          disabled={!isConnected}
+          onClick={ponderOrbOnCLick}
+        >
           Ponder Orb
         </Button>
-      </Group>
+      </GroupComponent>
     </>
   );
 };
